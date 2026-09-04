@@ -29,9 +29,9 @@ class SQLConnector:
             print("FAILED TO CONNECT TO MYSQL")
             print(e)
 
-finally:
-    if 'connection' in locals() and connection.is_connected():
-        cursor.close()
-        connection.close()
+        finally:
+            if 'connection' in locals() and connection.is_connected():
+                cursor.close()
+                connection.close()
 
-        print("DISCONNECTED FROM MYSQL")
+                print("DISCONNECTED FROM MYSQL")
