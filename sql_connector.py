@@ -30,6 +30,4 @@ finally:
         cursor.close()
         connection.close()
         print("DISCONNECTED FROM MYSQL")
-
-print("test")
-print("another test")
+print("nigga ")
