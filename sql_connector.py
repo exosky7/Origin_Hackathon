@@ -31,4 +31,4 @@ finally:
         connection.close()
 
         print("DISCONNECTED FROM MYSQL")
-print("nigga ")
+print("anything")
