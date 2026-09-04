@@ -21,6 +21,7 @@ class SQLConnector:
 
                 self.cursor.execute("select * from ledger_data")
                 rows = self.cursor.fetchall()
+                self.table_data = rows
 
                 #for row in rows:
                 #    print(row)
@@ -58,6 +59,13 @@ class SQLConnector:
         self.connection.commit()
         self.cursor.close()
 
+    def editRow(self, ID:str, topic:str, new_data:str):
+        self.cursor = self.connection.cursor(dictionary=True)
+        self.cursor.execute("update ledger_data set %s = %s where id = %s", (topic, new_data, ID))
+        self.connection.commit()
+        self.cursor.close()
+
+
     def printTable(self):
         self.cursor = self.connection.cursor(dictionary=True)
         self.cursor.execute("select * from ledger_data")
@@ -68,4 +76,5 @@ class SQLConnector:
             print(row)
         print("---------------------------------------------------------------------")
         self.cursor.close()
+        
 
