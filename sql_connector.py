@@ -29,5 +29,5 @@ finally:
     if 'connection' in locals() and connection.is_connected():
         cursor.close()
         connection.close()
+
         print("DISCONNECTED FROM MYSQL")
-print("nigga ")
