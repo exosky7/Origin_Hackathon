@@ -5,8 +5,7 @@ class App:
         pass
 
     def main(self):
-        gay = SQLConnector()
-
+        db = SQLConnector()
 
 
 if __name__ == "__main__":
