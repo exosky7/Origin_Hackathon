@@ -32,3 +32,4 @@ finally:
         print("DISCONNECTED FROM MYSQL")
 
 print("test")
+print("another test")
