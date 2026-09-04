@@ -2,28 +2,32 @@ import mysql.connector
 from mysql.connector import Error
 
 
-try:
-    connection = mysql.connector.connect(
-        host='localhost',
-        database='ledger_data',
-        user='py_developer',
-        password='MySql1234!',
-    )
+class SQLConnector:
 
-    if connection.is_connected():
-        db_info = connection.get_server_info()
-        print(f"CONNECTED TO SQL VERSION {db_info}")
+    def __init__(self):
+        try:
+            connection = mysql.connector.connect(
+                host='localhost',
+                database='ledger_data',
+                user='py_developer',
+                password='MySql1234!',
+            )
 
-        cursor = connection.cursor(dictionary=True)
+            if connection.is_connected():
+                db_info = connection.get_server_info()
+                print(f"CONNECTED TO SQL VERSION {db_info}")
 
-        cursor.execute("select * from ledger_data")
-        rows = cursor.fetchall()
+                cursor = connection.cursor(dictionary=True)
 
-        for row in rows:
-            print(row)
+                cursor.execute("select * from ledger_data")
+                rows = cursor.fetchall()
 
-except Error as e:
-    print("FAILED TO CONNECT TO MYSQL")
+                for row in rows:
+                    print(row)
+
+        except Error as e:
+            print("FAILED TO CONNECT TO MYSQL")
+            print(e)
 
 finally:
     if 'connection' in locals() and connection.is_connected():
@@ -31,4 +35,3 @@ finally:
         connection.close()
 
         print("DISCONNECTED FROM MYSQL")
-print("anything")
