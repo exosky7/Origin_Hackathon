@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="veiwport" content="width=device-width, initial-scale=1.0">
+        <title>Settlement support</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="loginScreen">
+            <div class="login-card">
+                <h1>Settlement Support</h1>
+                <p class="sub">Enter your 4-digit PIN to login</p>
+                <input id="pinInput" type="password" inputmode="numeric" maxlength="4" placeholder="••••" />
+                <button id="loginBtn">Log In</button>
+                <div class="login-error" id="loginError"></div>
+                <div class="login-hint">
+                    demo pins &nbsp;·&nbsp; 1234 (Aisha) &nbsp;·&nbsp; 5678 (Rohan) &nbsp;·&nbsp; 6420 (Meera)
+                </div>
+            </div>
+        </div>
+         <div id="appShell">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="topbar-title" id="viewTitle">Chat</div>
+      <div class="topbar-user" id="userLabel"></div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <nav id="sidebar">
+      <div class="sidebar-header">Menu</div>
+      <button class="nav-item" data-view="chat"><span class="nav-icon">💬</span> Chat</button>
+      <button class="nav-item" data-view="info"><span class="nav-icon">📘</span> Info</button>
+      <button class="nav-item" data-view="demo"><span class="nav-icon">🎬</span> Demo</button>
+      <button class="nav-item" data-view="history"><span class="nav-icon">🕑</span> Previous Chats</button>
+      <button class="nav-item" data-view="transactions"><span class="nav-icon">🧾</span> Past Transactions</button>
+      <button class="nav-item" data-view="accounts"><span class="nav-icon">👤</span> Accounts</button>
+    </nav>
+
+    <div id="mainContent"></div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
