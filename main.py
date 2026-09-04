@@ -1,1 +1,1 @@
-print("this is a potato")
+print("HELL YEHAHHHH")
