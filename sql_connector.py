@@ -1,6 +1,7 @@
 import mysql.connector
 from mysql.connector import Error
 
+
 try:
     connection = mysql.connector.connect(
         host='localhost',
@@ -30,3 +31,4 @@ finally:
         connection.close()
         print("DISCONNECTED FROM MYSQL")
 
+print("test")
