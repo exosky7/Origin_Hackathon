@@ -8,7 +8,7 @@ class SQLConnector:
         try:
             connection = mysql.connector.connect(
                 host='localhost',
-                database='ledger_data',
+                database='payment_thing',
                 user='py_developer',
                 password='MySql1234!',
             )
