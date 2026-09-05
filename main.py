@@ -21,8 +21,11 @@ class App:
                             - If the user asks about something unrelated to their transactions, gently guide them back to the topic.
                             - Use a friendly encouraging tone.
                             - all transaction data is here: {self.db.table_data}
+                            - you are in india and the currency here is INR
+                            - if the user asks you for a refund or asks you for anything outside your ability please ask them to contact their bank and speak to a customer service agent, politely of course
+                            - you are confined only and only to what you can do, do not ask the user if he wants to do something that you cannot do
                         """
-        self.front_comms.add_middleware(CORSMiddleware, allow_origins=self.origins, allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
+        self.front_comms.add_middleware(CORSMiddleware, allow_origin_regex=r"http://(localhost|127\.0\.0\.1)(:\d+)?", allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
         self._setup_routes_js()
 
     def _setup_routes_js(self):
