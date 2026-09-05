@@ -1,10 +1,5 @@
 const API_URL = "http://127.0.0.1:8000";
 
-
-// ============================================================
-// USERS
-// ============================================================
-
 const USERS = {
     "1234": {
         pin: "1234",
@@ -28,11 +23,6 @@ const USERS = {
     }
 };
 
-
-// ============================================================
-// STATE
-// ============================================================
-
 let state = {
     currentPin: null,
     currentView: "chat",
@@ -41,11 +31,6 @@ let state = {
     infoTab: "terms",
     demoChoice: null
 };
-
-
-// ============================================================
-// HELPERS
-// ============================================================
 
 function getUser() {
     return USERS[state.currentPin];
@@ -76,11 +61,6 @@ function getViewingChat() {
 
     return getActiveChat();
 }
-
-
-// ============================================================
-// ALERT / CONFIRM
-// ============================================================
 
 function showAlert(message) {
 
@@ -155,11 +135,6 @@ function showConfirm(message, onConfirm) {
             onConfirm();
         });
 }
-
-
-// ============================================================
-// LOGIN
-// ============================================================
 
 const loginScreen = document.getElementById("loginScreen");
 const appShell = document.getElementById("appShell");
@@ -279,11 +254,6 @@ pinInput.addEventListener("input", () => {
 
 });
 
-
-// ============================================================
-// SIDEBAR
-// ============================================================
-
 const menuBtn =
     document.getElementById("menuBtn");
 
@@ -340,10 +310,6 @@ document
     });
 
 
-// ============================================================
-// TOP BAR
-// ============================================================
-
 const mainContent =
     document.getElementById("mainContent");
 
@@ -369,11 +335,6 @@ const VIEW_TITLES = {
     accounts: "Accounts"
 
 };
-
-
-// ============================================================
-// MAIN RENDER
-// ============================================================
 
 function render() {
 
@@ -468,10 +429,6 @@ function render() {
 }
 
 
-// ============================================================
-// CHAT VIEW
-// ============================================================
-
 function renderChatView() {
 
     const container =
@@ -496,7 +453,6 @@ function renderChatView() {
         chat.id === user.activeChatId;
 
 
-    // Read-only banner
     if (!isActive) {
 
         const banner =
@@ -515,7 +471,6 @@ function renderChatView() {
     }
 
 
-    // Thread
     const thread =
         document.createElement("div");
 
@@ -535,7 +490,6 @@ function renderChatView() {
     container.appendChild(thread);
 
 
-    // Input
     if (isActive) {
 
         const footer =
@@ -589,8 +543,6 @@ function renderChatView() {
 
         container.appendChild(footer);
 
-
-        // Attach listeners after DOM exists
         setTimeout(() => {
 
             const inputEl =
@@ -646,11 +598,6 @@ function renderChatView() {
     return container;
 }
 
-
-// ============================================================
-// MESSAGE RENDERING
-// ============================================================
-
 function renderMessage(message) {
 
     const wrap =
@@ -661,7 +608,7 @@ function renderMessage(message) {
         `msg ${message.role}`;
 
 
-    // Normal text
+
     if (message.type === "text") {
 
         const bubble =
@@ -683,7 +630,6 @@ function renderMessage(message) {
     }
 
 
-    // Typing indicator
     if (message.type === "typing") {
 
         wrap.classList.add("typing");
@@ -712,10 +658,6 @@ function renderMessage(message) {
 }
 
 
-// ============================================================
-// SEND MESSAGE TO PYTHON BACKEND
-// ============================================================
-
 async function sendMessage(message) {
 
     const chat =
@@ -743,8 +685,6 @@ async function sendMessage(message) {
         btnEl.textContent = "Sending...";
     }
 
-
-    // Add user's message
     chat.messages.push({
 
         role: "user",
@@ -756,7 +696,6 @@ async function sendMessage(message) {
     });
 
 
-    // Add typing indicator
     chat.messages.push({
 
         role: "bot",
@@ -799,7 +738,6 @@ async function sendMessage(message) {
             );
 
 
-        // HTTP error
         if (!response.ok) {
 
             throw new Error(
@@ -818,12 +756,8 @@ async function sendMessage(message) {
             data
         );
 
-
-        // Remove typing indicator
         chat.messages.pop();
 
-
-        // Add AI response
         chat.messages.push({
 
             role: "bot",
@@ -845,7 +779,6 @@ async function sendMessage(message) {
         );
 
 
-        // Remove typing indicator
         chat.messages.pop();
 
 
@@ -961,15 +894,7 @@ function renderInfoView() {
 
             def:
                 "There isn't enough information to explain what happened, so a person has to check manually."
-        },
-
-        {
-            term: "Confidence",
-
-            def:
-                "How sure the tracer is about its answer — high, medium, or low."
         }
-
     ];
 
 

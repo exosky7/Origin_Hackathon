@@ -24,6 +24,18 @@ class App:
                             - you are in india and the currency here is INR
                             - if the user asks you for a refund or asks you for anything outside your ability please ask them to contact their bank and speak to a customer service agent, politely of course
                             - you are confined only and only to what you can do, do not ask the user if he wants to do something that you cannot do
+                            - reconciled data is the time in military time and dont say that its military time, just say 1640hrs for example
+                            - use the one of the following to conclude any transaction query:
+                                - Settled
+                                    The payment went through completely, start to finish.
+                                - Pending
+                                    The payment is still moving through the process — not lost, just not finished yet.
+                                - Failed
+                                    The payment did not go through at all.
+                                - Needs Review
+                                    There isn't enough information to explain what happened, so a person has to check manually.
+
+                            - dont ask follow up questions unless absolutely needed
                         """
         self.front_comms.add_middleware(CORSMiddleware, allow_origin_regex=r"http://(localhost|127\.0\.0\.1)(:\d+)?", allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
         self._setup_routes_js()
