@@ -6,20 +6,6 @@ const USERS = {
         name: "Aisha",
         chats: [],
         activeChatId: null
-    },
-
-    "5678": {
-        pin: "5678",
-        name: "Rohan",
-        chats: [],
-        activeChatId: null
-    },
-
-    "0420": {
-        pin: "0420",
-        name: "Meera",
-        chats: [],
-        activeChatId: null
     }
 };
 
@@ -327,8 +313,6 @@ const VIEW_TITLES = {
     transactions: "Past Transactions",
 
     info: "Info",
-
-    demo: "Demo",
 
     history: "Previous Chats",
 

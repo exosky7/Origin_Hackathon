@@ -430,6 +430,8 @@ http://127.0.0.1:5500
 If the frontend is served from another port, update the FastAPI CORS
 configuration accordingly.
 
+### MAKE SURE TO LOAD THE SAMPLE DATA INTO AN SQL TABLE CALLED 'payment_thing' into a table called 'ledger_data' BEFORE TRYING OUT THE PROGRAM
+
 ## Troubleshooting
 
 ### `OPTIONS /api/submit 400 Bad Request`
